@@ -1,0 +1,69 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2><%=__('table-main.orderP')%><Table></Table>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+
+                    <th><%=__('orders.fields.car')%></th>
+                    <th><%=__('orders.fields.service')%></th>
+                    <th><%=__('orders.fields.status')%></th>
+                    <th><%=__('orders.fields.dateOfOrder')%></th>
+
+                    <% if (loggedUser) { %>
+                        <th><%=__('list.actions.title')%></th>
+                    <% } %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% let orderArr = loggedUser.isAdmin ? orders : loggedUser.cars.reduce((acc, car) => acc.concat(car.orders), []); %>
+                <% for (let order of orderArr) { %>
+                    <tr>
+                        <td>
+                            <%= order.carId %>
+                        </td>
+                        <td>
+                            <%= order.service %>
+                        </td>
+                        <td>
+                            <%= order.status %>
+                        </td>
+                        
+                        <td>
+                            <%= order.dateOfOrder.toISOString ? order.dateOfOrder.toISOString().split('T')[0] : order.dateOfOrder.split('T')[0] %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/orders/details/<%= order.id%>" class="list-actions-button-details">
+                                        <i class="fa-solid fa-circle-info"></i></a>
+
+                                </li>
+                                <% if (loggedUser.isAdmin) { %>
+                                    <li>
+                                        <a href="/orders/edit/<%= order.id %> " class="list-actions-button-edit">
+                                            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/orders/delete/<%=order.id  %> " class="list-actions-button-delete">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </td>
+
+
+
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <% if (loggedUser && loggedUser.isAdmin) { %>
+            <p><a href="../orders/add" class="button-add"><%=__('orders.list.addNew')%></a></p> 
+        <% } %>  
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

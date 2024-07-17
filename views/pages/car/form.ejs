@@ -1,0 +1,180 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <script type="application/javascript" src="/js/va   lidationCarForm.js"></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form action="<%=formAction %>" class="form" method="post" novalidate onsubmit="return validateForm(event);">
+
+            <% if (formMode !='createNew' ){%>
+                <input type="hidden" name="id" value="<%= car.id %>">
+                <%}%>
+
+                    <label for="carNumber">
+                        <%=__('car.fields.carNumber')%>: <span class="symbol-required">*</span>
+                    </label>
+                    <input class="<%= validationErrors.find(e=> e.path.includes('carNumber')) ? 'error-input' : '' %>"
+                        type="text" name="carNumber" id="carNumber" placeholder=" 3-15 characters" required
+                        value="<%= car.carNumber %>" <%=(formMode=='showDetails' )?'disabled': '' %>/>
+                    <span id="errorCarNumber" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('carNumber'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('carNumber')).message %>
+                                <% } %>
+                    </span>
+
+                    <label for="carColor">
+                        <%=__('car.fields.color')%>:
+                    </label>
+                    <input class="<%= validationErrors.find(e=> e.path.includes('color')) ? 'error-input' : '' %>"
+                        type="color" name="color" id="carColor" required value="<%= car.color %>"
+                        <%=(formMode=='showDetails' )?'disabled': '' %> />
+                    <span id="errorCarColor" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('color'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('color')).message %>
+                                <% } %>
+                    </span>
+
+                    <label for="carModel">
+                        <%=__('car.fields.model')%>:
+                    </label>
+                    <input class="<%= validationErrors.find(e=> e.path.includes('model')) ? 'error-input' : '' %>"
+                        type="text" name="model" id="carModel" placeholder="3-10 characters" required
+                        value="<%= car.model %>" <%=(formMode=='showDetails' )?'disabled': '' %>/>
+                    <span id="errorCarModel" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('model'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('model')).message %>
+                                <% } %>
+                    </span>
+
+                    <label for="carYear">
+                        <%=__('car.fields.year')%>:
+                    </label>
+                    <input
+                        class="<%= validationErrors.find(e=> e.path.includes('yearOfRelease')) ? 'error-input' : '' %>"
+                        type="number" name="yearOfRelease" id="carYear" min="1980-10-01" max="2022-10-21" required
+                        value="<%= car.yearOfRelease %>" <%=(formMode=='showDetails' )?'disabled': '' %>/>
+                    <span id="errorCarYear" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('yearOfRelease'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('yearOfRelease')).message %>
+                                <% } %>
+                    </span>
+
+                    <label for="carPrice">
+                        <%=__('car.fields.price')%>:
+                    </label>
+                    <input class="<%= validationErrors.find(e=> e.path.includes('price')) ? 'error-input' : '' %>"
+                        type="number" name="price" id="carPrice" min="1000" max="1000000" step="100"
+                        placeholder=" 1000-1000000 dollars" required value="<%= car.price %>"
+                        <%=(formMode=='showDetails' )?'disabled': '' %> />
+                    <span id="errorCarPrice" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('price'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('price')).message %>
+                                <% } %>
+                    </span>
+
+                    <label for="engineSeries">
+                        <%=__('engine.fields.engineSeries')%>:
+                    </label>
+                    <select class="<%= validationErrors.find(e=> e.path.includes('engineId')) ? 'error-input' : '' %>"
+                        name="engineId" id="engineId" required <%=(formMode=='showDetails' )?'disabled': '' %>>
+                        <option value="">
+                            <%=__('engine.list.selectEngine')%>
+                        </option>
+                        <% for(let i=0; i<allEngines.length; i++) { let engine=allEngines[i]; %>
+                            <option value="<%= engine.id %>" label="<%= engine.id + ' ' + engine.provider  %>"
+                                <%=(car.engineId && engine.id.toString()==car.engineId.toString()) ? 'selected' : '' %>>
+
+                            </option>
+                            <% } %>
+                    </select>
+                    <span id="errorEngineSeries" class="errors-text">
+                        <% if(validationErrors.find(e=> e.path.includes('engineId'))) { %>
+                            <%= validationErrors.find(e=> e.path.includes('engineId')).message %>
+                                <% } %>
+                    </span>
+
+                    <% if (loggedUser.isAdmin) { %>
+                        <label for="Owner">
+                            <%=__('own.owner')%>:
+                        </label>
+                        <select
+                            class="<%= validationErrors.find(e=> e.path.includes('ownerId')) ? 'error-input' : '' %>"
+                            name="ownerId" id="ownerId" required <%=(formMode=='showDetails' )?'disabled': '' %> >
+                            <option value="">
+                                <%=__('own.list.selectOwner')%>
+                            </option>
+                            <% for(let i=0; i<allOwners.length; i++) { let owner=allOwners[i]; %>
+                                <option value="<%= owner.id %>" label="<%= owner.firstName + ' ' + owner.lastName %>"
+                                    <%=(car.ownerId && owner.id.toString()==car.ownerId.toString()) ? 'selected' : '' %>
+                                    >
+
+                                </option>
+                                <% } %>
+                        </select>
+                        <span id="errorOwner" class="errors-text">
+                            <% if(validationErrors.find(e=> e.path.includes('ownerId'))) { %>
+                                <%= validationErrors.find(e=> e.path.includes('ownerId')).message %>
+                                    <% } %>
+                        </span>
+                        <% } else { %>
+                            <input type="hidden" name="ownerId" value="<%=loggedUser.id%>">
+                            <% } %>
+
+                                <% if (formMode=='showDetails' ) { %>
+                                    <div class="section-buttons">
+                                        <a href=" /cars/edit/<%= car.id %> " class="button-add">
+                                            <%=__('list.actions.edit')%>
+                                        </a>
+                                    </div>
+                                    <% } %>
+
+                                        <div class="form-buttons">
+                                            <p id="errorsSummary" class="errors-text"> </p>
+                                            <% if (formMode !='showDetails' ) { %>
+                                                <input type="submit" class="form-button-submit" value="<%=btnLabel%>" />
+                                                <a href="/cars" class="form-button-cancel">
+                                                    <%=__('form.actions.cancel')%>
+                                                </a>
+                                                <% } else { %>
+                                                    <a href="/cars" class="form-button-cancel">
+                                                        <%=__('form.actions.return')%>
+                                                    </a>
+                                                    <% } %>
+
+                                        </div>
+
+
+        </form>
+        <div style="display: none">
+            <span id="errorRequired">
+                <%= __('validationMessage.fieldRequired') %>
+            </span>
+            <span id="errorNumberRange">
+                <%= __('validationMessage.numberRange') %>
+            </span>
+            <span id="errorTextLength">
+                <%= __('validationMessage.textLength') %>
+            </span>
+            <span id="errorTextStart">
+                <%= __('validationMessage.startLetter') %>
+            </span>
+            <span id="errorTextNumberGreater">
+                <%= __('validationMessage.numberGreater') %>
+            </span>
+            <span id="errorTextNumber">
+                <%= __('validationMessage.number') %>
+            </span>
+            <span id="errorDateFormat">
+                <%= __('validationMessage.dateFormat') %>
+            </span>
+            <span id="errorForm">
+                <%= __('validationMessage.formHasError') %>
+            </span>
+        </div>
+
+
+
+
+
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

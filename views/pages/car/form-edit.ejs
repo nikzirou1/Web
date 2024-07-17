@@ -1,0 +1,66 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2>Edit Car</h2>
+        <form action="" class="form">
+            
+                <label for="carNumber">Car Number: <span class="symbol-required">*</span></label>
+                <input type="text" name ="carNumber" value="2332" id = "carNumber" required />
+                <span id = "errorCarNumber"></span>
+    
+                <label for="carColor">Color: </label>
+                <input type="color" name ="carColor" value="Blue" id = "carColor" required  />
+                <span id = "errorCarColor"></span>
+    
+                <label for="carModel">Model: </label>
+                <input type="text" name ="carModel" value="Toyota" id = "carModel"required />
+                <span id = "errorCarModel"></span>
+    
+                <label for="carYear">Year of Release: </label>
+                <input type="date" name ="carYear" id = "carYear" value="2001-10-10" min="1980-10-01" max="2022-10-21" required  />
+                <span id = "errorCarYear"></span>
+    
+                <label for="carPrice">Price: </label>
+                <input type="text" name ="carPrice" id = "carPrice" value="8000" min ="1000" max="1000000" 
+                step ="100" required  />
+                <span id = "errorCarPrice"></span>
+                 
+                <label for="engineSize">EngineSeries: </label>
+                <select name="engineSeries" id="engineSeries"  required >
+                <option value="1" >A23D</option>
+                <option value="2" selected>FND342</option>
+                <option value="3">239DJ</option>
+                </select>
+                
+                
+            </form>
+            <h1> </h1>
+
+                <form action="" class="form">
+                    <label for="Owner">Owner: </label>
+                    <select name="owner" id="Owner"  required >
+                    <option value="1" >Bob Milligan</option>
+                    <option value="2" >Michal O'Nil</option>
+                    <option value="3">Jhon Marston
+                        
+                    </select>
+
+                      
+        
+                        <div class="form-buttons">
+                            <p id = "errorSummery"> </p>
+                            <input type="submit" class="form-button-submit" value="Add"  />
+                            <a href="" class="form-button-cancel">Cancel</a>
+                            
+                        </div> 
+                </form>
+        
+            
+              
+            
+          
+        
+    
+    
+    
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

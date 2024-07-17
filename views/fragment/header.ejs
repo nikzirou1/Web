@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="application/javascript" src="/js/validationCommon.js"></script>
+    <link rel="stylesheet" href="/CSS/style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.css"
+        integrity="sha512-hksROWRSWPuYnv0z5vhyUwobZ49ZBxzhsCdXhwFy9ZDFFMS2UOg1DgCKphTlWkibm7p3Fp6Vq6GffbNDd+tOgg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/solid.css"
+        integrity="sha512-RayiVbmLmW7DvtIA/RblYy7YqTlog8MVBYEwLkPFYY1GTTaVuDdBxC3RaJE6kEyWyCeSwROiH+2rR3rREm6eWQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>
+                <%=__('department.carDepartment')%>
+            </h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita blanditiis nam laboriosam temporibus
+                aliquam debitis ab est officia, incidunt impedit totam, iure et praesentium ullam non provident
+                repudiandae velit quasi.</p>
+        </div>
+        <img src="/images/bugatti-black-car-car-bugatti-divo-wallpaper-preview.jpg" alt="logo">
+    </header>
+    <nav>
+        <div id="localeSwitcher">
+            <a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a>
+            <a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a>
+        </div>
+        <ul>
+            <li><a href="/" class="<%= navLoc == 'main' ? 'active' : ''%>"><%=__('nav.main-page')%></a></li>
+            <li><a href="/engines" class="<%= navLoc == 'engine' ? 'active' : ''%>">
+                    <%=__('nav.engine')%>
+                </a></li>
+            <li><a href="/cars" class="<%= navLoc == 'car' ? 'active' : ''%>">
+                    <%=__('nav.car')%>
+                </a></li>
+            <li><a href="/stations" class="<%= navLoc == 'station' ? 'active' : ''%>">
+                    <%=__('nav.station')%>
+                </a></li>
+
+            <% if(loggedUser) { %>
+                <li><a href="/orders" class="<%= navLoc == 'order' ? 'active' : ''%>">
+                        <%=__('nav.order')%>
+                    </a></li>
+                <li><a href="/owners" class="<%= navLoc == 'owner' ? 'active' : ''%>">
+                        <%=__('nav.owner')%>
+                    </a></li>
+
+                <li><a href="/logout" class="<%= navLoc == 'logout' ? 'active' : ''%>">Log out (<%=loggedUser.email%>
+                            )</a></li>
+                <% } else { %>
+                    <li><a href="/login" class="<%= navLoc == 'logout' ? 'active' : ''%>">Log in</a></li>
+                    <% } %>
+        </ul>
+    </nav>

@@ -1,0 +1,12 @@
+const express = require('express');
+const router =  express.Router();
+const engineController = require('../controllers/engineController');
+const authUtils = require('../utils/authUtils');
+router.get('/', engineController.showEngineList);
+router.get('/add', authUtils.permitAuthenticatedUser, engineController.showAddEngineForm);
+router.get('/edit/:engineId', authUtils.permitAuthenticatedUser, engineController.showEditEngineForm);
+router.get('/details/:engineId', authUtils.permitAuthenticatedUser, engineController.showEngineDetails);
+router.post('/add', authUtils.permitAuthenticatedUser, engineController.addEngine);
+router.post('/edit', authUtils.permitAuthenticatedUser, engineController.updateEngine);
+router.get('/delete/:engineId', authUtils.permitAuthenticatedUser, engineController.deleteEngine);
+module.exports = router;   

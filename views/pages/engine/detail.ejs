@@ -1,0 +1,88 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h1>Engines Details</h1>
+        <form action="" class="form form-2">
+            <label for="carNumber">Engine Series: <span class="symbol-required">*</span></label>
+            <input type="text" name="engineSeries" id="engineSeries"  value="9821" required disabled>
+
+            <label for="engineSize">Size: </label>
+                <select name="engineSize" id="engineSize"  required disabled>
+                <option>-- Choose Size --</option>
+                <option value="1" >1.0 to 2.0-liters</option>
+                <option value="2" selected>2.0 to 3.0-liters</option>
+                <option value="3">3.0+ liters</option>
+                </select>
+            
+                <label for="engineWeight">Weight: </label>
+                <input type="number" id ="engineWeight" name="engineWeight" min ="10" max="60" step="5" value="50" required disabled>
+                <label>Provider:</label>
+                <p>
+                <label for="provider1">
+                    <input type="radio" id ="provider1" name="provider" value="Comies"  required disabled>
+                    ComiesEA
+                </label>
+                <label for="provider2">
+                    <input type="radio" checked id ="provider2" name="provider" value="Konami"  required disabled>
+                    Konami Interactive
+                </label>
+                <label for="provider3">
+                    <input type="radio" id ="provider3" name="provider" value="Capcom"  required disabled>Capcom Company 
+                </label>
+            </p>
+                <label>Material:</label>
+                <select name="Material" id="material1"  required disabled>
+                    <option >-- Choose Material --</option>
+                    <option value="1" selected>Silver</option>
+                    <option value="2" >Steel</option> 
+                </select>
+
+            <p><a href="../engine/form-edit.html" class="list-actions-button-edit">Edit</a></p>
+        </form>
+
+        <h2>Car Details and Owner details</h2>
+        <table  class="table-list">
+            <thead>
+                <tr>
+                    <th>Car Number</th>
+                    <th>Name</th>
+                    <th>Surname</th>
+                    <th>Email</th>
+                    <th>Model</th>
+                    <th>Price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   <td>AE2111BH</td>
+                   <td>Michal</td>
+                   <td>Tayn</td>
+                   <td>dfdf@mail.ru</td>
+                   <td>Toyota</td>
+                   <td>23333</td>
+                </tr>
+                <tr>
+                    <td>HH3DW2</td>
+                    <td>Bichal</td>
+                    <td>Nayn</td>
+                    <td>dfdf@mail.ru</td>
+                    <td>Toyota</td>
+                    <td>85333</td>
+                 </tr>
+                 <tr>
+                    <td>BB32SKG</td>
+                   <td>Lichal</td>
+                   <td>Uayn</td>
+                   <td>dfdf@mail.ru</td>
+                   <td>BMW</td>
+                   <td>80000</td>
+                 </tr>
+            </tbody>
+        
+           
+            
+       
+    </table>
+    <p><a href="../car/list.html" class="list-actions-button-details">Back</a></p>
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

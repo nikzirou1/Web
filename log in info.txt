@@ -1,0 +1,8 @@
+bobs@mail.ru -USER
+12345
+
+bobs2@mail.ru - USER
+12345
+
+bobs3@mail.ru -ADMIN
+12345

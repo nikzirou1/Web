@@ -1,0 +1,73 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <table class="table-list">
+            <h2><%=__('table-main.carP')%></h2>
+            <thead>
+                <tr>
+                    <th><%=__('car.fields.carId')%></th>
+                    <th><%=__('car.fields.carNumber')%></th>
+                    <th><%=__('car.fields.color')%></th>
+                    <th><%=__('car.fields.model')%></th>
+                    <th><%=__('car.fields.year')%></th>
+                    <th><%=__('car.fields.price')%></th>
+                    <% if (loggedUser) { %>
+                    <th><%=__('list.actions.title')%></th>
+                    <% } %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% let carsAr = loggedUser && !loggedUser.isAdmin ? loggedUser.cars : cars %>
+                <% for(let car of carsAr) { %>
+                    <tr>
+                        <td>
+                            <%= car.id %>
+                        </td>
+                        <td>
+                            <%= car.carNumber %>
+                        </td>
+                        <td>
+                            <%= car.color %>
+                        </td>
+                        <td>
+                            <%= car.model %>
+                        </td>
+                        <td>
+                            <%= car.yearOfRelease %>
+                        </td>
+                        <td>
+                            <%= car.price %>
+                        </td>
+                        <% if(loggedUser) { %>
+                        <td>
+                                
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/cars/details/<%= car.id%>" class="list-actions-button-details"> <i
+                                            class="fa-solid fa-circle-info"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/cars/edit/<%= car.id%>" class="list-actions-button-edit"><i
+                                            class="fa-sharp fa-solid fa-pen-to-square"></i></a>
+                                </li>
+                                <li>
+                                    <a href="/cars/delete/<%= car.id%>" class="list-actions-button-delete"><i
+                                            class="fa-solid fa-trash"></i></a>
+                                </li>
+                            </ul>
+
+                            
+                        </td>
+                        <% } %>
+
+
+
+                    </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <% if (loggedUser && loggedUser.isAdmin ) { %>
+        <p><a href="../cars/add" class="button-add"><%=__('car.list.addNew')%></a></p>
+        <% } %>
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

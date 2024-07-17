@@ -1,0 +1,59 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2>New Car</h2>
+        <form class="form" novalidate onsubmit="return validateForm(event);">
+            
+            <label for="carNumber">Car Number: </label>
+            <input type="text" name ="carNumber" value="S2323" id = "carNumber" class="error-input" placeholder=" 2-8 characters" required disabled />
+            <span id = "errorCarNumber"class="symbol-required"  class="errors-text">Field is required.  </span>
+
+            <label for="carColor">Color:  </label>
+            <input type="color" name ="carColor"  id = "carColor" class="error-input" required  disabled />
+            <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+
+            <label for="carModel">Model: </label>
+            <input type="text" name ="carModel"  value="Tayota" id = "carModel" class="error-input" placeholder="3-10 characters" required disabled/>
+            <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+
+            <label for="carYear">Year of Release:  </label>
+            <input type="date" name ="carYear" id = "carYear"  value="1999-10-10" min="1980-10-01" max="2022-10-21" class="error-input" required disabled  />
+            <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+
+            <label for="carPrice">Price:  </label>
+            <input type="text" name ="carPrice" id = "carPrice"  value="80000" min ="1000" max="1000000" 
+            step ="100" class="error-input" placeholder=" 1000-1000000 dollars" required disabled  />
+            <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+             
+            <label for="engineSize">EngineSeries: </label>
+            <select name="engineSeries" id="engineSeries" class="error-input" required disabled >
+            <option value="1" >A23D</option>
+            <option value="2" >FND342</option>
+            <option value="3">239DJ</option>
+            </select>
+            <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+            
+            
+        </form>
+        <h1> </h1>
+
+            <form action="" class="form">
+                <label for="Owner">Owner:  </label>
+                <select name="owner" id="Owner" class="error-input" required disabled >
+                <option value="1" >Bob Milligan</option>
+                <option value="2" >Michal O'Nil</option>
+                <option value="3">Jhon Marston
+                    
+                </select>
+                <span id = "errorCarNumber"class="symbol-required" class="errors-text">Field is required.  </span>
+                <div class="form-buttons">
+                    <p id = "errorsSummary" class="errors-text">Form contains errors. </p>
+                    <input type="submit"class="form-button-submit" value="Add"  />
+                    <a href="" class="form-button-cancel">Cancel</a>
+                   
+                </div>
+            </form>
+      
+    
+    
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

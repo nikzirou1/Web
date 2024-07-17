@@ -1,0 +1,36 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2>Edit Owner</h2>
+        <form action="" class="form">
+            <label for="FirstNAME">Name: *</label>
+            <input type="text" name ="FirstNAME" value="Jhon" id = "Name" required  />
+            <span id = "errorFirstName"></span>
+
+            <label for="SecondName">Surname: *</label>
+            <input type="text" name ="SecondName" value="Miller" id = "surname" required   />
+            <span id = "errorSecondName"></span>
+
+            <label for="carSalary">Salary: *</label>
+            <input type="number" name="Salary" value="6000" id ="salary" required  />
+            <span id = "errorSalary"></span>
+            
+            <label for="carEmail">Email: *</label>
+            <input type="email" name ="Mail" value="jhonmiller@mail.yu" id = "mail" required  />
+            <span id = "errorMail"></span>
+            
+            <label for="carBirthday">Birthday: *</label>
+            <input type="date" name ="Birthday" value="1989-10-30" id = "birthday" required   />
+            <span id = "errorBirthday"></span>
+            
+            <div class="form-buttons">
+                <p id = "errorSummery"> </p>
+                <input type="submit" class="form-button-submit" value="Add"  />
+                <a href="" class="form-button-cancel">Cancel</a>
+               
+            </div>
+        </form>
+        
+    
+    
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

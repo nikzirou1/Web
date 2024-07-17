@@ -1,0 +1,99 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h1>Cars,Engine & Owner Details</h1>
+
+            <form action="" class="form">
+            
+                <label for="carNumber">Car Number: <span class="symbol-required">*</span></label>
+                <input type="text" name ="carNumber" value="S2323" id = "carNumber" required disabled />
+                <span id = "errorCarNumber"></span>
+    
+                <label for="carColor">Color: </label>
+                <input type="color" name ="carColor"  id = "carColor" required  disabled />
+                <span id = "errorCarColor"></span>
+    
+                <label for="carModel">Model: </label>
+                <input type="text" name ="carModel"  value="Tayota" id = "carModel"required disabled/>
+                <span id = "errorCarModel"></span>
+    
+                <label for="carYear">Year of Release: </label>
+                <input type="date" name ="carYear" id = "carYear"  value="1999-10-10" min="1980-10-01" max="2022-10-21" required disabled  />
+                <span id = "errorCarYear"></span>
+    
+                <label for="carPrice">Price: </label>
+                <input type="text" name ="carPrice" id = "carPrice"  value="80000" min ="1000" max="1000000" 
+                step ="100" required disabled  />
+                <span id = "errorCarPrice"></span>
+                 
+                <label for="engineSize">EngineSeries: <span class="symbol-required">*</span> </label>
+                <select name="engineSeries" id="engineSeries"  required disabled >
+                <option value="1" >A23D</option>
+                <option value="2" >FND342</option>
+                <option value="3">239DJ</option>
+                </select>
+                
+                
+            </form>
+            <h1> </h1>
+    
+                <form action="" class="form">
+                    <label for="Owner">Owner:  <span class="symbol-required">*</span></label>
+                    <select name="owner" id="Owner"  required disabled >
+                    <option value="1" >Bob Milligan</option>
+                    <option value="2" >Michal O'Nil</option>
+                    <option value="3">Jhon Marston
+                        
+                    </select>
+    
+                </form>
+
+            <p><a href="../car/form-edit.html" class="list-actions-button-edit">Edit Car</a></p>
+            
+                            
+                   
+     
+
+        <h2>Cars Details</h2>
+        <table  class="table-list">
+            <thead>
+                <tr>
+                    <th>Car Number</th>
+                    <th>Color</th>
+                    <th>Model</th>
+                    <th>Year of release</th>
+                    <th>Price</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   <td>AE2111BH</td>
+                   <td>Blue</td>
+                   <td>Toyota</td>
+                   <td>2008</td>
+                   <td>50000</td>
+                </tr>
+                <tr>
+                    <td>HH3DW2</td>
+                    <td>Red</td>
+                    <td>BMW</td>
+                    <td>2001</td>
+                    <td>12000</td>
+                 </tr>
+                 <tr>
+                    <td>BB32SKG</td>
+                    <td>Yellow</td>
+                    <td>Honda</td>
+                    <td>2016</td>
+                    <td>23000</td>
+                 </tr>
+            </tbody>
+
+            
+        
+            
+       
+    </table>
+    <p><a href="../car/list.html" class="list-actions-button-details">Back</a></p>
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

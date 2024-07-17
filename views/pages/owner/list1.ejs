@@ -1,0 +1,104 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2><%= __('table-main.ownerP') %><Table></Table>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th><%= __('own.fields.firstName') %></th>
+                    <th><%= __('own.fields.lastName') %></th>
+                    <th><%= __('own.fields.salary') %></th>
+                    <th><%= __('own.fields.email') %></th>
+                    <th><%= __('own.fields.birthday') %></th>
+                    <% if (loggedUser.isAdmin) {%>
+                        <th><%= __('own.fields.admin') %></th>
+                    <% } %> 
+                    <th><%= __('list.actions.title') %></th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+                <% if (!loggedUser.isAdmin) { %>
+                    <tr>
+                        <td>
+                            <%= loggedUser.firstName %>
+                        </td>
+                        <td>
+                            <%= loggedUser.lastName %>
+                        </td>
+                        <td>
+                            <%= loggedUser.salary %>
+                        </td>
+                        <td>
+                            <%= loggedUser.email %>
+                        </td>
+                        <td>
+                            <%= loggedUser.birthday.split('T')[0] %>
+                        </td>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/owners/details/<%= loggedUser.id%>" class="list-actions-button-details">
+                                        <i class="fa-solid fa-circle-info"></i></a>
+
+                                </li>
+                                <li>
+                                    <a href="/owners/edit/<%= loggedUser.id %> " class="list-actions-button-edit">
+                                        <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+                <% } else {%>
+                    <% for (let owner of owners) { %>
+                        <tr>
+                            <td>
+                                <%= owner.firstName %>
+                            </td>
+                            <td>
+                                <%= owner.lastName %>
+                            </td>
+                            <td>
+                                <%= owner.salary %>
+                            </td>
+                            <td>
+                                <%= owner.email %>
+                            </td>
+                            <td>
+                                <%= owner.birthday.toISOString().split('T')[0] %>
+                            </td>
+                            <td><%=owner.isAdmin ? "Yes" : ""%></td>
+                            <td>
+                                <ul class="list-actions">
+                                    <li>
+                                        <a href="/owners/details/<%= owner.id%>" class="list-actions-button-details">
+                                            <i class="fa-solid fa-circle-info"></i></a>
+
+                                    </li>
+                                    <li>
+                                        <a href="/owners/edit/<%= owner.id %> " class="list-actions-button-edit">
+                                            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/owners/delete/<%=owner.id  %> " class="list-actions-button-delete">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </td>
+
+
+
+                        </tr>
+                    <% } %>
+                <% } %>
+            </tbody>
+        </table>
+        <% if (loggedUser.isAdmin) { %>
+        <p><a href="/owners/add" class="button-add"><%=__('own.list.addNew')%></a></p>
+        <% } %>
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

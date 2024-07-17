@@ -1,0 +1,61 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2><%= __('table-main.stationP') %><Table></Table>
+        </h2>
+        <table class="table-list">
+            <thead>
+                <tr>
+                    <th><%= __('station.fields.manager') %></th>
+                    <th><%= __('station.fields.address') %></th>
+            
+                    <% if (loggedUser) { %>
+                        <th><%= __('list.actions.title') %></th>
+
+                    <% } %>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% for (let station of stations) { %>
+                    <tr>
+                        <td>
+                            <%= station.ownerId %>
+                        </td>
+                        <td>
+                            <%= station.address %>
+                        </td>
+                        <% if (loggedUser) { %>
+                        <td>
+                            <ul class="list-actions">
+                                <li>
+                                    <a href="/stations/details/<%= station.id%>" class="list-actions-button-details">
+                                        <i class="fa-solid fa-circle-info"></i></a>
+
+                                </li>
+                                <% if (loggedUser.isAdmin) { %>
+                                    <li>
+                                        <a href="/stations/edit/<%= station.id %> " class="list-actions-button-edit">
+                                            <i class="fa-sharp fa-solid fa-pen-to-square"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="/stations/delete/<%=station.id  %> " class="list-actions-button-delete">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </a>
+                                    </li>
+                                <% } %>
+                            </ul>
+                        </td>
+
+                        <% } %>
+
+                    </tr>
+                    <% } %>
+            </tbody>
+        </table>
+        <% if (loggedUser && loggedUser.isAdmin) { %>
+            <p><a href="../stations/add" class="button-add">Add new station</a></p> 
+        <% } %>  
+    </main>
+    <%- include('../../fragment/footer.ejs') %>
+    

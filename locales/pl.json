@@ -1,0 +1,264 @@
+{
+	"department": {
+		"carDepartment": "Dział samochodowy"
+	},
+	"main-page": {
+		"content": "Strona główna"
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"owner": "Właściciel",
+		"engine": "Silnik",
+		"order": "Zamówienie",
+		"car": "Samochód",
+		"station": "Stacja",
+		"orders": "nav.orders",
+		"owners": "nav.owners"
+	},
+	"table-main": {
+		"ownerP": "Tabela właścicieli",
+		"engineP": "Tabela silnika",
+		"orderP": "Tabela zamówień",
+		"carP": "Tabela samochodowy",
+		"stationP": "Tabela stacja"
+	},
+	"list": {
+		"actions": {
+			"title": "Akcje",
+			"details": "Szczegóły",
+			"edit": "Edytuj",
+			"delete": "Usuń"
+		}
+	},
+	"form": {
+		"actions": {
+			"title": "Akcje",
+			"return": "Powrót",
+			"edit": "Edytuj",
+			"cancel": "Anuluj"
+		},
+		"cancel": "form.cancel",
+		"return": "form.return"
+	},
+	"own": {
+		"owner": "Właściciel",
+		"fields": {
+			"firstName": "Imię",
+			"lastName": "Nazwisko",
+			"salary": "Wypłata",
+			"email": "Email",
+			"admin": "Admin",
+			"birthday": "Urodziny",
+			"password": "Hasło"
+		},
+		"list": {
+			"title": "Pracownicy",
+			"addNew": "Dodaj nowego właściciel",
+			"noData": "Brak właściciela w bazie",
+			"pageTitle": "Lista właścicieley",
+			"selectOwner": "---Wybierz właściciela---"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Dodawanie właściciela",
+				"btnLabel": "Dodaj właściciela",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano właściciela"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja właściciela",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano właściciela"
+				}
+			},
+			"details": {
+				"tableName": "Stolik samochodowy",
+				"pageTitle": "Szczegóły właściciela"
+			}
+		},
+		"details": {
+			"tableName": "own.details.tableName"
+		}
+	},
+	"car": {
+		"fields": {
+			"carId": "Identyfikator samochodu",
+			"carNumber": "Numer samochodu",
+			"color": "Kolor",
+			"model": "Model",
+			"year": "Rok wydania",
+			"price": "Cena"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Dodać nowy samochód",
+			"noData": "Brak samochodu w bazie",
+			"pageTitle": "Lista samochoduw"
+		},
+		"form": {
+			"cars": "Car table",
+			"owners": "Właściciele",
+			"add": {
+				"pageTitle": "Dodawanie samochód",
+				"btnLabel": "Dodaj samochód",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano samochód"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja samochóda",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano samochód"
+				}
+			},
+			"details": {
+				"tableName": "Szczegóły właściciela",
+				"pageTitle": "Szczegóły samochodu"
+			},
+			"pageTitle": "Add a car",
+			"btnLabel": "Add"
+		},
+		"field": {
+			"model": "car.field.model",
+			"price": "car.field.price"
+		},
+		"edit": {
+			"pageTitle": "car.edit.pageTitle",
+			"btnLabel": "car.edit.btnLabel"
+		}
+	},
+	"engine": {
+		"fields": {
+			"engineSeries": "Seria silników",
+			"size": "Rozmiar",
+			"weight": "Waga",
+			"provider": "Dostawca",
+			"material": "Materiał"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Dodać nowy silnik",
+			"noData": "Brak silnika w bazie",
+			"pageTitle": "Lista silnikuw",
+			"selectEngine": "---Wybierz silnik---",
+			"selectSize": "---Wybierz rozmiar---",
+			"selectMaterial": "---Wybierz materiał---",
+			"selectSzie": "engine.list.selectSzie"
+		},
+		"form": {
+			"engines": "Silniki",
+			"add": {
+				"pageTitle": "Dodawanie silnika",
+				"btnLabel": "Dodaj silnik",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano silnik"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja silnikuw",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano silnik"
+				}
+			},
+			"details": {
+				"tableName": "Szczegóły silnika"
+			}
+		},
+		"table-main": {
+			"engineP": "engine.table-main.engineP"
+		}
+	},
+	"orders": {
+		"fields": {
+			"car": "Samochód Id",
+			"service": "Usługa",
+			"status": "Status",
+			"dateOfOrder": "Data zamówienia",
+			"selectService": "---Wybierz usluga---"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Dodać nowy zamówienie",
+			"noData": "Brak zamówienie w bazie",
+			"pageTitle": "Lista zamówien"
+		},
+		"form": {
+			"orders": "Zamówienie",
+			"add": {
+				"pageTitle": "Dodawanie zamówienie",
+				"btnLabel": "Dodaj zamówienie",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano zamówienie"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja zamówienie",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano "
+				}
+			},
+			"details": {
+				"tableName": "Szczegóły zamówienia",
+				"pageTitle": "Edycja zamówienia"
+			}
+		}
+	},
+	"station": {
+		"fields": {
+			"manager": "Menedżer",
+			"address": "Adresa"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Dodać nowy stacja",
+			"noData": "Brak stacje w bazie",
+			"pageTitle": "Lista stacje"
+		},
+		"form": {
+			"stations": "Stacje",
+			"add": {
+				"pageTitle": "Dodawanie stacja",
+				"btnLabel": "Dodaj stacje",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie dodano stacje"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja stacje",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie operacji",
+					"text": "Pomyślnie zaktualizowano "
+				}
+			},
+			"details": {
+				"tableName": "Szczegóły stacje"
+			}
+		}
+	},
+	"order": {
+		"form": {
+			"details": {
+				"pageTitle": "order.form.details.pageTitle"
+			},
+			"edit": {
+				"pageTitle": "order.form.edit.pageTitle",
+				"btnLabel": "order.form.edit.btnLabel"
+			}
+		}
+	}
+}

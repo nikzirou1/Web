@@ -1,0 +1,55 @@
+<%- include('../../fragment/header.ejs') %>
+    <main >
+        <h2 >Edit Engine</h2>
+        <form action="" class="form form-2">
+            <label for="carNumber">Engine Series: <span class="symbol-required">*</span></label>
+            <input type="text" name="engineSeries" id="engineSeries"  value="9821" required >
+
+            <label for="engineSize">Size: </label>
+                <select name="engineSize" id="engineSize"  required >
+                <option>-- Choose Size --</option>
+                <option value="1" >1.0 to 2.0-liters</option>
+                <option value="2" selected>2.0 to 3.0-liters</option>
+                <option value="3">3.0+ liters</option>
+                </select>
+            
+                <label for="engineWeight">Weight: </label>
+                <input type="number" id ="engineWeight" name="engineWeight" min ="10" max="60" step="5" value="50" required >
+                <label>Provider:</label>
+                <p>
+                <label for="provider1">
+                    <input type="radio" id ="provider1" name="provider" value="Comies"  required >
+                    ComiesEA
+                </label>
+                <label for="provider2">
+                    <input type="radio" checked id ="provider2" name="provider" value="Konami"  required >
+                    Konami Interactive
+                </label>
+                <label for="provider3">
+                    <input type="radio" id ="provider3" name="provider" value="Capcom"  required >Capcom Company 
+                </label>
+            </p>
+                <label>Material:</label>
+                <select name="Material" id="material1"  required >
+                    <option >-- Choose Material --</option>
+                    <option value="1" selected>Silver</option>
+                    <option value="2" >Steel</option> 
+                </select>
+
+            
+
+                <div class="form-buttons">
+                    <p id = "errorSummery"> </p>
+                    <input type="submit" class="form-button-submit" value="Add"  />
+                    <a href="" class="form-button-cancel">Cancel</a>
+                   
+                </div>
+            
+
+            
+        </form>
+       
+    
+    
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

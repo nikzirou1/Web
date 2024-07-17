@@ -1,0 +1,202 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <script type="application/javascript" src="/js/validationEngineForm.js"></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form action="<%=formAction %>" novalidate method="post" class="form" novalidate
+            onsubmit="return validateForm(event);">
+
+            <input type="hidden" name="id" value="<%= engine.id %>">
+
+            <label for="engineSize">
+                <%=__('engine.fields.size')%>:
+            </label>
+            <select class="<%= validationErrors.find(e=> e.path.includes('engineSize')) ? 'error-input' : '' %>"
+                name="engineSize" id="engineSize" <%=(formMode=='showDetails' )?'disabled': '' %>>
+                <option value="">
+                    <%=__('engine.list.selectSize')%>
+                </option>
+                <option value="1.0 to 2.0-liters" <%=(engine.engineSize=="1.0 to 2.0-liters" ) ? 'selected' : '' %> >1.0
+                    to 2.0-liters</option>
+                <option value="2.0 to 3.0-liters" <%=(engine.engineSize=="2.0 to 3.0-liters" ) ? 'selected' : '' %>>2.0
+                    to 3.0-liters</option>
+                <option value="3.0+ liters" <%=(engine.engineSize=="3.0+ liters" ) ? 'selected' : '' %>>3.0+ liters
+                </option>
+            </select>
+            <span id="errorEngineSize" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('engineSize'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('engineSize')).message %>
+                        <% } %>
+            </span>
+
+            <label for="engineWeight">
+                <%=__('engine.fields.weight')%>:
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('engineWeight')) ? 'error-input' : '' %>"
+                type="number" id="engineWeight" name="engineWeight" min="10" max="60" step="5"
+                value="<%= engine.engineWeight %>" <%=(formMode=='showDetails' )?'disabled': '' %>/>
+            <span id="errorEngineWeight" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('engineWeight'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('engineWeight')).message %>
+                        <% } %>
+            </span>
+
+            <label>
+                <%=__('engine.fields.provider')%>:
+            </label>
+            <%if(formMode== 'showDetails' ){%>
+                <p><input class="<%= validationErrors.find(e=> e.path.includes('provider')) ? 'error-input' : '' %>"
+                        type="text" id="provider1" name="provider" value="<%=engine.provider%>" disabled /></p>
+                <%} else { %>
+                    <p>
+                        <label for="provider1">
+                            <input type="radio" id="provider1" name="provider" value="ComiesEA"
+                                <%=(formMode=='showDetails' )?'disabled': '' %>
+                            <%=(engine.provider=="ComiesEA" ) ? 'checked' : '' %>/>ComiesEA
+
+                        </label>
+                        <label for="provider2">
+                            <input type="radio" id="provider2" name="provider" value="Konami Interactive"
+                                <%=(formMode=='showDetails' )?'disabled': '' %>
+                            <%=(engine.provider=="Konami Interactive" ) ? 'checked' : '' %>/>
+                                Konami Interactive??
+                        </label>
+                        <label for="provider3">
+                            <input type="radio" id="provider3" name="provider" value="Capcom"
+                                <%=(formMode=='showDetails' )?'disabled': '' %>
+                            <%=(engine.provider=="Capcom" ) ? 'checked' : '' %>/>Capcom Company??
+                        </label>
+
+                    </p>
+                    <%}%>
+                        <span id="errorEngineProvider" class="errors-text">
+                            <% if(validationErrors.find(e=> e.path.includes('provider'))) { %>
+                                <%= validationErrors.find(e=> e.path.includes('provider')).message %>
+                                    <% } %>
+                        </span>
+
+                        <label>
+                            <%=__('engine.fields.material')%>:
+                        </label>
+                        <select
+                            class="<%= validationErrors.find(e=> e.path.includes('material')) ? 'error-input' : '' %>"
+                            name="material" id="material1" <%=(formMode=='showDetails' )?'disabled': '' %>>
+                            <option value="">
+                                <%=__('engine.list.selectMaterial')%>
+                            </option>
+                            <option value="Silver" <%=(engine.material=="Silver" ) ? 'selected' : '' %>>Silver</option>
+                            <option value="Steel" <%=(engine.material=="Steel" ) ? 'selected' : '' %> >Steel</option>
+                        </select>
+                        <span id="errorEngineMaterial" class="errors-text">
+                            <% if(validationErrors.find(e=> e.path.includes('material'))) { %>
+                                <%= validationErrors.find(e=> e.path.includes('material')).message %>
+                                    <% } %>
+                        </span>
+
+                        <% if (loggedUser.isAdmin && formMode=='showDetails' ) { %>
+                            <div class="section-buttons">
+                                <a href=" /engines/edit/<%= engine.id %> " class="button-add">
+                                    <%=__('engine.form.edit.pageTitle')%>
+                                </a>
+                            </div>
+                            <% } %>
+
+
+                                <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+                                    <div style="grid-column: 1 / span 3">
+                                        <h2>
+                                            <%=__('engine.form.details.tableName')%>
+                                        </h2>
+                                        <table class="table-list">
+                                            <thead>
+                                                <tr>
+                                                    <th>
+                                                        <%=__('engine.fields.provider')%>
+                                                    </th>
+                                                    <th>
+                                                        <%=__('own.fields.firstName')%>
+                                                    </th>
+                                                    <th>
+                                                        <%=__('own.fields.lastName')%>
+                                                    </th>
+                                                    <th>
+                                                        <%=__('own.fields.email')%>
+                                                    </th>
+                                                    <th>
+                                                        <%=__('car.fields.model')%>
+                                                    </th>
+                                                    <th>
+                                                        <%=__('car.fields.price')%>
+                                                    </th>
+
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <% for (let car of engine.cars) { %>
+                                                    <% if(!loggedUser.isAdmin && car.ownerId !=loggedUser.id) continue;
+                                                        %>
+                                                        <tr>
+                                                            <td>
+                                                                <%= car.carNumber %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.owners.firstName %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.owners.lastName %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.owners.email %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.model %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.price %>
+                                                            </td>
+
+                                                        </tr>
+                                                        <% } %>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <% } %>
+
+
+                                        <div class="form-buttons">
+                                            <p id="errorsSummary" class="errors-text"> </p>
+                                            <% if (formMode !='showDetails' ) { %>
+                                                <input type="submit" class="form-button-submit" value="<%=btnLabel%>" />
+                                                <a href="/engines" class="form-button-cancel">
+                                                    <%=__('form.actions.cancel')%>
+                                                </a>
+                                                <% } else { %>
+                                                    <a href="/engines" class="form-button-cancel">
+                                                        <%=__('form.actions.return')%>
+                                                    </a>
+                                                    <% } %>
+
+                                        </div>
+
+
+
+        </form>
+
+        <div style="display: none">
+            <span id="errorRequired">
+                <%= __('validationMessage.fieldRequired') %>
+            </span>
+            <span id="errorNumberRange">
+                <%= __('validationMessage.numberRange') %>
+            </span>
+            <span id="errorForm">
+                <%= __('validationMessage.formHasError') %>
+            </span>
+        </div>
+
+
+
+
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

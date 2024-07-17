@@ -1,0 +1,73 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h1>Owner Details</h1>
+        <form action="" class="form">
+            <label for="FirstNAME">__('own.fields.name'): *</label>
+            <input type="text" name ="FirstNAME" value="Jhon" id = "Name" required disabled />
+            <span id = "errorFirstName"></span>
+
+            <label for="SecondName">__('own.fields.lastName'): *</label>
+            <input type="text" name ="SecondName" value="Miller" id = "surname" required disabled  />
+            <span id = "errorSecondName"></span>
+
+            <label for="carSalary">__('own.fields.salary'): *</label>
+            <input type="number" name="Salary" value="6000" id ="salary" required  disabled />
+            <span id = "errorSalary"></span>
+            
+            <label for="carEmail">__('own.fields.email'): *</label>
+            <input type="email" name ="Mail" value="jhonmiller@mail.yu" id = "mail" required disabled  />
+            <span id = "errorMail"></span>
+            
+            <label for="carBirthday">__('own.fields.bi'): *</label>
+            <input type="date" name ="Birthday" value="1989-10-30" id = "birthday" required  disabled />
+            <span id = "errorBirthday"></span>
+
+            <p><a href="../owner/form-edit.html" class="list-actions-button-edit">Edit</a></p>
+        </form>
+
+        <h2>Car Details and Engine details</h2>
+        <table  class="table-list">
+            <thead>
+                <tr>
+                    <th>Car Number</th>
+                    <th>Model</th>
+                    <th>Price</th>
+                    <th>__('engine.fields.engineSeries')</th>
+                    <th>__('engine.fields.size')</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                   <td>AE2111BH</td>
+                   <td>Toyota</td>
+                   <td>50000</td>
+                   <td>23232A</td>
+                   <td>20x10</td>
+                </tr>
+                <tr>
+                    <td>HH3DW2</td>
+                    <td>BMW</td>
+                    <td>12000</td>
+                    <td>23323</td>
+                    <td>10x10</td>
+                 </tr>
+                 <tr>
+                    <td>BB32SKG</td>
+                    <td>Honda</td>
+                    <td>23000</td>
+                    <td>45fNFd</td>
+                    <td>50x35</td>
+                 </tr>
+            </tbody>
+        
+           
+               
+
+            
+            
+       
+    </table>
+    <p><a href="../car/list.html" class="list-actions-button-details">Back</a></p>
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

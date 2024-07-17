@@ -1,0 +1,222 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <script type="application/javascript" src="/js/validationOwnerForm.js" defer></script>
+        <h2>
+            <%= pageTitle %>
+        </h2>
+        <form action="<%=formAction %>" method="post" class="form" novalidate onsubmit="return validateForm(event);">
+
+            <input type="hidden" name="id" value="<%= owner.id %>">
+
+            <label for="FirstNAME">
+                <th>
+                    <%= __('own.fields.firstName') %>
+                </th> <span class="symbol-required">*</span>
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('firstName')) ? 'error-input' : '' %> "
+                type="text" name="firstName" id="Name" placeholder="4-20 characters" value="<%= owner.firstName %>"
+                <%=(formMode=='showDetails' )?'disabled': '' %>/>
+
+
+
+            <span id="errorFirstName" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('firstName'))) { %>
+                    <%=validationErrors.find(e=> e.path.includes('firstName')).message %>
+                        <% } %>
+            </span>
+
+            <label for="surname">
+                <th>
+                    <%= __('own.fields.lastName') %>
+                </th><span class="symbol-required">*</span>
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('lastName')) ? 'error-input' : '' %>"
+                type="text" name="lastName" id="surname" placeholder="4-20 characters" value="<%= owner.lastName %>"
+                <%=(formMode=='showDetails' )?'disabled': '' %>/>
+
+            <span id="errorSecondName" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('lastName'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('lastName')).message %>
+                        <% } %>
+            </span>
+
+            <label for="salary">
+                <th>
+                    <%= __('own.fields.salary') %>
+                </th> <span class="symbol-required">*</span>
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('salary')) ? 'error-input' : '' %>"
+                type="number" name="salary" id="salary" value="<%= owner.salary %>" <%=(formMode=='showDetails'
+                )?'disabled': '' %> min="1" max="100000"/>
+            <span id="errorSalary" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('salary'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('salary')).message %>
+                        <% } %>
+            </span>
+
+            <label for="mail">
+                <th>
+                    <%= __('own.fields.email') %>
+                </th> <span class="symbol-required">*</span>
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('email')) ? 'error-input' : '' %>" type="email"
+                name="email" id="mail" placeholder="10-30 characters" value="<%= owner.email %>"
+                <%=(formMode=='showDetails' )?'disabled': '' %>/>
+            <span id="errorMail" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('email'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('email')).message %>
+                        <% } %>
+            </span>
+
+            <label for="birthday">
+                <th>
+                    <%= __('own.fields.birthday') %>
+                </th> <span class="symbol-required">*</span>
+            </label>
+            <input class="<%= validationErrors.find(e=> e.path.includes('birthday')) ? 'error-input' : '' %>"
+                type="date" name="birthday" id="birthday"
+                value="<%= owner.birthday && typeof owner.birthday !== 'string' ? owner.birthday.toISOString().split('T')[0] : owner.birthday %>"
+                <%=(formMode=='showDetails' )?'disabled': '' %> />
+            <script>
+                document.querySelector("input#birthday").max = new Date(Date.now() - 16 * 365 * 24 * 60 * 60 * 1000).toISOString().split("T")[0];
+            </script>
+            <span id="errorBirthday" class="errors-text">
+                <% if(validationErrors.find(e=> e.path.includes('birthday'))) { %>
+                    <%= validationErrors.find(e=> e.path.includes('birthday')).message %>
+                        <% } %>
+            </span>
+            <% if (formMode=="createNew" ) { %>
+                <label for="password">
+                    <th>
+                        <%= __('own.fields.password') %>
+                    </th> <span class="symbol-required">*</span>
+                </label>
+                <input class="<%= validationErrors.find(e=> e.path.includes('password')) ? 'error-input' : '' %>"
+                    type="password" name="password" id="password" placeholder="8-30 characters and numbers" />
+                <span id="errorPassword" class="errors-text">
+                    <% if(validationErrors.find(e=> e.path.includes('password'))) { %>
+                        <%= validationErrors.find(e=> e.path.includes('password')).message %>
+                            <% } %>
+                </span>
+                <% } %>
+
+                    <% if (formMode=="createNew" ) { %>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="isAdmin" name="isAdmin" value="true" />
+                            <label for="isAdmin" class="form-check-label" style="display: inline-block;">Admin</label>
+                        </div>
+                        <span></span>
+                        <span></span>
+                        <% } %>
+
+
+
+                            <% if (formMode=='showDetails' ) { %>
+                                <div class="section-buttons">
+                                    <a href=" /owners/edit/<%= owner.id %> " class="button-add">
+                                        <%= __('own.form.edit.pageTitle') %>
+                                    </a>
+                                </div>
+                                <% } %>
+
+                                    <% if (formMode=='showDetails' || formMode=='edit' ) { %>
+                                        <div style="grid-column: 1 / span 3">
+                                            <h2>
+                                                <%= __('own.form.details.tableName') %>
+                                            </h2>
+                                            <table class="table-list">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+
+                                                        <th>
+                                                            <%= __('engine.fields.size') %>
+                                                        </th>
+                                                        <th>
+                                                            <%= __('car.fields.carNumber') %>
+                                                        </th>
+                                                        <th>
+                                                            <%= __('car.fields.model') %>
+                                                        </th>
+                                                        <th>
+                                                            <%= __('car.fields.price') %>
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <% for (let car of owner.cars) { %>
+
+                                                        <tr>
+                                                            <td><a href="/engine/details/<%= car.engines.id %>">
+                                                                    <%= car.engines.id %>
+                                                                </a> </td>
+                                                            <td>
+                                                                <%= car.engines.engineSize %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.carNumber %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.model %>
+                                                            </td>
+                                                            <td>
+                                                                <%= car.price %>
+                                                            </td>
+
+                                                        </tr>
+                                                        <% } %>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <% } %>
+
+                                            <div class="form-buttons">
+                                                <p id="errorsSummary" class="errors-text"> </p>
+                                                <% if (formMode !='showDetails' ) { %>
+                                                    <input type="submit" class="form-button-submit"
+                                                        value="<%=btnLabel%>" />
+                                                    <a href="/owners" class="form-button-cancel">
+                                                        <%=__('form.actions.cancel')%>
+                                                    </a>
+                                                    <% } else { %>
+                                                        <a href="/owners" class="form-button-cancel">
+                                                            <%= __('form.actions.return') %>
+                                                        </a>
+                                                        <% } %>
+
+                                            </div>
+        </form>
+
+        <div style="display: none">
+            <span id="errorRequired">
+                <%= __('validationMessage.fieldRequired') %>
+            </span>
+            <span id="errorNumberRange">
+                <%= __('validationMessage.numberRange') %>
+            </span>
+            <span id="errorTextLength">
+                <%= __('validationMessage.textLength') %>
+            </span>
+            <span id="errorTextNumberGreater">
+                <%= __('validationMessage.numberGreater') %>
+            </span>
+            <span id="errorTextNumber">
+                <%= __('validationMessage.number') %>
+            </span>
+            <span id="errorDateFormat">
+                <%= __('validationMessage.dateFormat') %>
+            </span>
+            <span id="errorMailFormat">
+                <%= __('validationMessage.mailFormat') %>
+            </span>
+            <span id="errorOnlyLetters">
+                <%= __('validationMessage.onlyLetters') %>
+            </span>
+            <span id="errorForm">
+                <%= __('validationMessage.formHasError') %>
+            </span>
+        </div>
+
+
+    </main>
+    <%- include('../../fragment/footer.ejs') %>

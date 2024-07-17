@@ -1,0 +1,11 @@
+const express = require('express');
+const router =  express.Router();
+const stationController = require('../controllers/stationController');
+router.get('/', stationController.showStationList);
+router.get('/add', stationController.showAddStationForm);
+router.get('/edit/:stationId', stationController.showEditStationForm);
+router.get('/details/:stationId', stationController.showStationDetails);
+router.post('/add', stationController.addStation);
+router.post('/edit', stationController.updateStation);
+router.get('/delete/:stationId', stationController.deleteStation);
+module.exports = router;   

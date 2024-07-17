@@ -1,0 +1,36 @@
+<%- include('../../fragment/header.ejs') %>
+    <main>
+        <h2>New Owner</h2>
+        <form action="" class="form" novalidate onsubmit="validateForm(event);">
+            <label for="FirstNAME">Name: <span class="symbol-required" >*</span></label>
+            <input type="text" name ="FirstNAME"  id = "Name" class="error-input" placeholder=" 4-20 characters"  required  />
+            <span id = "errorFirstName"class="errors-text">Field is required.</span>
+
+            <label for="SecondName">Surname: <span class="symbol-required">*</span></label>
+            <input type="text" name ="SecondName"  id = "surname" class="error-input" placeholder="4-20 characters" required   />
+            <span id = "errorSecondName" class="errors-text">Field is required.</span>
+
+            <label for="carSalary">Salary: <span class="symbol-required">*</span></label>
+            <input type="number" name ="Salary"  id = "salary" class="error-input" required  />
+            <span id = "errorSalary" class="errors-text">Field is required.</span>
+            
+            <label for="carEmail">Email: <span class="symbol-required">*</span></label>
+            <input type="email" name ="Mail"  id = "mail" class="error-input" placeholder="10-30 characters" required   />
+            <span id = "errorMail" class="errors-text">Field is required.</span>
+            
+            <label for="carBirthday">Birthday: <span class="symbol-required">*</span></label>
+            <input type="date" name ="Birthday"  id = "birthday" class="error-input" required   />
+            <span id = "errorBirthday" class="errors-text">Field is required.</span>
+
+
+            <div class="form-buttons">
+                <p id = "errorSummery"> </p>
+                <input type="submit" class="form-button-submit" value="Add"  />
+                <a href="" class="form-button-cancel">Cancel</a>
+               
+            </div>
+        </form>
+        
+    
+    </main>
+    <%- include('../../fragment/footer.ejs') %> 

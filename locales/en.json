@@ -1,0 +1,276 @@
+{
+	"department": {
+		"carDepartment": "Car Department"
+	},
+	"main-page": {
+		"content": "Home"
+	},
+	"nav": {
+		"main-page": "Home page",
+		"owner": "Owner",
+		"engine": "Engine",
+		"order": "Order",
+		"car": "Car",
+		"station": " Station ",
+		"orders": " nav.orders ",
+		"owners": " nav.owners "
+	},
+	"table-main": {
+		"ownerP": "Owner table",
+		"engineP": "Engine Table",
+		"orderP": "Order Table",
+		"carP": "car table",
+		"stationP": "Table station"
+	},
+	"list": {
+		"actions": {
+			"title": " Stocks ",
+			"details": " Details ",
+			"edit": " Edit ",
+			"delete": " Delete "
+		}
+	},
+	"form": {
+		"actions": {
+			"title": " Stocks ",
+			"return": " Return ",
+			"edit": " Edit ",
+			"cancel": " Cancel "
+		},
+		"cancel": " form.cancel ",
+		"return": " form.return "
+	},
+	"own": {
+		"owner": " Owner ",
+		"fields": {
+			"firstName": "First Name",
+			"lastName": "LastName",
+			"salary": "Payment",
+			"email": "Email",
+			"admin": "admin",
+			"birthday": " Birthday ",
+			"password": "Password"
+		},
+		"list": {
+			"title": "Employees",
+			"addNew": "Add new owner",
+			"noData": "No owner in database",
+			"pageTitle": "List of Owners",
+			"selectOwner": "---Select owner---"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "Add Owner",
+				"btnLabel": "Add Owner",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Successfully added owner"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit owner",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Owner updated successfully"
+				}
+			},
+			"details": {
+				"tableName": "Car Table",
+				"pageTitle": "Owner Details"
+			}
+		},
+		"details": {
+			"tableName": "own.details.tableName"
+		}
+	},
+	"car": {
+		"fields": {
+			"carId": "ID car",
+			"carNumber": "Number car",
+			"color": "Color",
+			"model": "Model",
+			"year": "Year of release",
+			"price": "Price"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Add a new car",
+			"noData": "No car in database",
+			"pageTitle": "List of cars "
+		},
+		"form": {
+			"cars": "Car table",
+			"owners": "Owners",
+			"add": {
+				"pageTitle": "Adding a car",
+				"btnLabel": "Add car",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Car added successfully"
+				}
+			},
+			"edit": {
+				"pageTitle": "Car Edit",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Car updated successfully"
+				}
+			},
+			"details": {
+				"tableName": "Owner Details",
+				"pageTitle": "Car Details"
+			},
+			" pageTitle ": "Add a car",
+			" btnLabel ": "Add"
+		},
+		"field": {
+			"model": " car.field.model ",
+			"price": " car.field.price "
+		},
+		"edit": {
+			" pageTitle ": " car.edit.pageTitle ",
+			" btnLabel ": " car.edit.btnLabel "
+		}
+	},
+	"engine": {
+		"fields": {
+			"engineSeries": "Series engines",
+			"size": " Size ",
+			"weight": " Weight ",
+			"provider": " Provider ",
+			"material": "Material"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Add a new engine",
+			"noData": "No engine in database",
+			"pageTitle": "Engine List",
+			"selectEngine": "---Select Engine---",
+			"selectSize": "---Select size---",
+			"selectMaterial": "---Select Material---"
+		},
+		"form": {
+			"engines": "Engines",
+			"add": {
+				"pageTitle": "Adding Engine",
+				"btnLabel": "Add Engine",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Engine added successfully"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit engines",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Engine updated successfully"
+				}
+			},
+			"details": {
+				"tableName": "Details engine"
+			}
+		},
+		"table-main": {
+			" engineP ": " engine.table-main.engineP "
+		}
+	},
+	"orders": {
+		"fields": {
+			"car": " Car ID",
+			"service": "Service",
+			"status": "Status",
+			"dateOfOrder": "Order date",
+			"selectService": "---Select service---"
+		},
+		"list": {
+			"title": "",
+			"addNew": "Add a new order",
+			"noData": "No order in database",
+			"pageTitle": "Order List"
+		},
+		"form": {
+			"orders": "Order",
+			"add": {
+				"pageTitle": "Adding Order",
+				"btnLabel": "Add Order",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Order added successfully"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit order",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Updated successfully"
+				}
+			},
+			"details": {
+				"tableName": "Order Details",
+				"pageTitle": "Order Edit"
+			}
+		}
+	},
+	"station": {
+		"fields": {
+			"manager": " Manager ",
+			"address": " Address "
+		},
+		"list": {
+			"title": "",
+			"addNew": "Add a new station",
+			"noData": "No stations in database",
+			"pageTitle": "List of stations"
+		},
+		"form": {
+			"stations": "Stations",
+			"add": {
+				"pageTitle": "Adding station",
+				"btnLabel": "Add stations",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Successfully added stations"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit stations",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Operation confirmation",
+					"text": "Updated successfully"
+				}
+			},
+			"details": {
+				"tableName": "Station Details"
+			}
+		}
+	},
+	"order": {
+		"form": {
+			"details": {
+				" pageTitle ": " order.form.details.pageTitle "
+			},
+			"edit": {
+				" pageTitle ": " order.form.edit.pageTitle ",
+				" btnLabel ": " order.form.edit.btnLabel "
+			}
+		}
+	},
+	"validationMessage": {
+		"formHasError": "Form contains errors.",
+		"textLength": "The field should contain {} to {} characters.",
+		"fieldRequired": "The field is required.",
+		"numberRange": "The weight number should be between {} and {}",
+		"startLetter": "The field should start with letter character and contain only letters and numbers.",
+		"number": "The field should contain only numbers.",
+		"numberGreater": "The field should be greater than {}.",
+		"dateFormat": "The field should contain the date in the yyyy-MM-dd format (e.g. 2000-01-01).",
+		"mailFormat": "The doesn't match mail pattern.",
+		"letterNumber": "The field should start with letter character and contain only letters and numbers.",
+		"onlyLetters": "Should contain only letters."
+	}
+}
